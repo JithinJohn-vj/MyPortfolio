@@ -1,4 +1,4 @@
-import { navLinks } from "@/utils/constants";
+import { navLinks } from "@/utils/constants.tsx";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
