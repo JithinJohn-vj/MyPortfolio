@@ -48,7 +48,7 @@ export default function Hero() {
             </div>
             <div className="flex space-x-5 pt-4">
               <a 
-                href="https://linkedin.com/in/jithin-john-8a6a3421a" 
+                href="https://www.linkedin.com/in/jithinjohn-dev" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-primary transition-colors"
