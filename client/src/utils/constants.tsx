@@ -137,7 +137,7 @@ export const experiences: Experience[] = [
   {
     title: "Frontend Developer",
     company: "LymData Labs Pvt. Ltd.",
-    location: "Remote",
+    location: "Remote - Cochin, India",
     period: "April 2024 – March 2025",
     responsibilities: [
       "Designed and developed a youth skill development platform using Next.js, Tailwind CSS, Bootstrap, and MongoDB.",
@@ -149,7 +149,7 @@ export const experiences: Experience[] = [
   {
     title: "Python Developer",
     company: "Softroniics Solutions",
-    location: "Cochin, India",
+    location: "Calicut, India",
     period: "July 2023 – March 2024",
     responsibilities: [
       "Developed a full-fledged e-commerce platform using Python Django and MongoDB, deployed on Google Cloud Platform (GCP) with Docker containers.",
@@ -161,7 +161,7 @@ export const experiences: Experience[] = [
   {
     title: "Junior Python Developer",
     company: "Softroniics Solutions",
-    location: "Calicut, India",
+    location: "Palakkad, India",
     period: "Dec 2019 – Dec 2021",
     responsibilities: [
       "Designed and implemented an Inventory Management System using Python and Django, streamlining stock tracking and reporting.",

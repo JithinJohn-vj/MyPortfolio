@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaPaperPlane } from "react-icons/fa";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -63,7 +63,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-20 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+      <div className="absolute bottom-20 -right-32 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl -z-10"></div>
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-12"
@@ -73,8 +77,8 @@ export default function Contact() {
           variants={fadeInUp}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold">Get In Touch</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mt-2"></div>
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent inline-block">Get In Touch</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-purple-400 mx-auto mt-2"></div>
           <p className="text-white/70 mt-4 max-w-xl mx-auto">Feel free to reach out for collaboration opportunities or just to say hi!</p>
         </motion.div>
         
@@ -86,13 +90,13 @@ export default function Contact() {
             variants={fadeInUp}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Card className="bg-surface rounded-xl shadow-lg h-full">
+            <Card className="bg-gradient-to-b from-gray-800/50 to-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-white/5 h-full">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-6 text-primary">Contact Information</h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="flex items-start group">
+                    <div className="flex-shrink-0 h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-all duration-300">
                       <FaEnvelope className="h-5 w-5" />
                     </div>
                     <div className="ml-4">
@@ -100,8 +104,8 @@ export default function Contact() {
                       <a href="mailto:jithinjohnptr@gmail.com" className="text-white hover:text-primary transition-colors">jithinjohnptr@gmail.com</a>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="flex items-start group">
+                    <div className="flex-shrink-0 h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-all duration-300">
                       <FaPhone className="h-5 w-5" />
                     </div>
                     <div className="ml-4">
@@ -109,8 +113,8 @@ export default function Contact() {
                       <a href="tel:+46731545578" className="text-white hover:text-primary transition-colors">+46 731 545 578</a>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <div className="flex items-start group">
+                    <div className="flex-shrink-0 h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary group-hover:scale-110 transition-all duration-300">
                       <FaMapMarkerAlt className="h-5 w-5" />
                     </div>
                     <div className="ml-4">
@@ -120,14 +124,14 @@ export default function Contact() {
                   </div>
                 </div>
                 
-                <div className="mt-8">
+                <div className="mt-8 pt-6 border-t border-white/10">
                   <h4 className="text-sm font-medium text-white/70 mb-4">Connect with me</h4>
                   <div className="flex space-x-4">
                     <a 
-                      href="https://linkedin.com/in/jithin-john-8a6a3421a" 
+                      href="https://www.linkedin.com/in/jithinjohn-dev" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
+                      className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary hover:scale-110 hover:text-white hover:bg-primary transition-all duration-300"
                       aria-label="LinkedIn"
                     >
                       <FaLinkedin className="h-5 w-5" />
@@ -136,7 +140,7 @@ export default function Contact() {
                       href="https://github.com/JithinJohn-vj" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"
+                      className="h-12 w-12 rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 flex items-center justify-center text-primary hover:scale-110 hover:text-white hover:bg-primary transition-all duration-300"
                       aria-label="GitHub"
                     >
                       <FaGithub className="h-5 w-5" />
@@ -154,7 +158,7 @@ export default function Contact() {
             variants={fadeInUp}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="bg-surface rounded-xl shadow-lg h-full">
+            <Card className="bg-gradient-to-b from-gray-800/50 to-gray-900/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-white/5 h-full">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-6 text-primary">Send Me a Message</h3>
                 
@@ -169,11 +173,11 @@ export default function Contact() {
                           <FormControl>
                             <Input 
                               {...field} 
-                              className="bg-background border border-white/10 text-white focus:ring-primary/50"
+                              className="bg-gray-900/50 border border-white/10 text-white focus-visible:ring-1 focus-visible:ring-primary/50 rounded-lg"
                               placeholder="Your name"
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -188,11 +192,11 @@ export default function Contact() {
                             <Input 
                               {...field} 
                               type="email"
-                              className="bg-background border border-white/10 text-white focus:ring-primary/50"
+                              className="bg-gray-900/50 border border-white/10 text-white focus-visible:ring-1 focus-visible:ring-primary/50 rounded-lg"
                               placeholder="Your email"
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -206,11 +210,11 @@ export default function Contact() {
                           <FormControl>
                             <Input 
                               {...field}
-                              className="bg-background border border-white/10 text-white focus:ring-primary/50"
+                              className="bg-gray-900/50 border border-white/10 text-white focus-visible:ring-1 focus-visible:ring-primary/50 rounded-lg"
                               placeholder="Subject"
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
@@ -225,20 +229,21 @@ export default function Contact() {
                             <Textarea 
                               {...field}
                               rows={4}
-                              className="bg-background border border-white/10 text-white focus:ring-primary/50"
+                              className="bg-gray-900/50 border border-white/10 text-white focus-visible:ring-1 focus-visible:ring-primary/50 rounded-lg resize-none"
                               placeholder="Your message"
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage className="text-red-400" />
                         </FormItem>
                       )}
                     />
                     
                     <Button 
                       type="submit" 
-                      className="w-full bg-primary text-white hover:bg-primary/90" 
+                      className="w-full bg-gradient-to-r from-primary to-blue-500 hover:from-primary/90 hover:to-blue-600 text-white rounded-lg py-6 transition-all duration-300" 
                       disabled={isSubmitting}
                     >
+                      <FaPaperPlane className="mr-2 h-4 w-4" />
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
