@@ -1,10 +1,16 @@
 import type { Express, Request, Response } from "express";
 import { createServer, type Server } from "http";
+import express from "express";
+import path from "path";
+import nodemailer from "nodemailer";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve static files from the public directory
+  app.use('/public', express.static(path.join(process.cwd(), 'public')));
+  
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
@@ -21,6 +27,52 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Store the contact message
       const contactMessage = await storage.createContactMessage(validationResult.data);
+      
+      // Set up email transporter
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+          user: process.env.EMAIL_USER || 'your-email@gmail.com',
+          pass: process.env.EMAIL_PASS || 'your-password',
+        },
+      });
+      
+      // Set up email options
+      const mailOptions = {
+        from: req.body.email,
+        to: 'jithinjohnptr@gmail.com',
+        subject: `Portfolio Contact: ${req.body.subject}`,
+        text: `
+          Name: ${req.body.name}
+          Email: ${req.body.email}
+          
+          Message:
+          ${req.body.message}
+        `,
+        html: `
+          <h3>New contact message from your portfolio website</h3>
+          <p><strong>Name:</strong> ${req.body.name}</p>
+          <p><strong>Email:</strong> ${req.body.email}</p>
+          <p><strong>Subject:</strong> ${req.body.subject}</p>
+          <p><strong>Message:</strong></p>
+          <p>${req.body.message}</p>
+        `,
+      };
+      
+      // Send email (wrapped in try/catch to avoid breaking the endpoint if email fails)
+      try {
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+          await transporter.sendMail(mailOptions);
+          console.log('Email sent successfully');
+        } else {
+          console.log('Email credentials not configured, skipping email sending');
+        }
+      } catch (emailError) {
+        console.error('Error sending email:', emailError);
+        // We don't return an error response here since we still saved the message in the database
+      }
       
       return res.status(201).json({
         message: "Contact message received successfully",
