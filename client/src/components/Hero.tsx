@@ -1,72 +1,83 @@
-import { motion } from "framer-motion";
+
 import { Button } from "@/components/ui/button";
-import { FaArrowDown } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen relative bg-gradient-to-br from-background via-background/95 to-primary/10 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center min-h-screen">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            <div className="inline-block px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary">
-              Full Stack Developer
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-purple-500">
-              Jithin John
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-lg">
-              Crafting innovative web solutions with modern technologies and best practices
-            </p>
-            <div className="flex gap-4">
-              <Button 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                size="lg"
-              >
+    <section className="min-h-screen relative overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+      
+      <div className="container mx-auto px-4 pt-32 pb-24 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-primary font-semibold mb-2">Full Stack Developer</h2>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+                Jithin <span className="text-primary">John</span>
+              </h1>
+              <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-xl">
+                Transforming ideas into exceptional digital experiences through modern web technologies and innovative solutions.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="flex gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
                 View Projects
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-primary/30 bg-primary/10 text-primary hover:bg-primary/20"
-              >
-                Contact Me
-              </Button>
-            </div>
-          </motion.div>
+              <a href="/Jithin_John_CV.pdf" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg" className="border-primary/30 text-primary hover:bg-primary/10">
+                  Download CV
+                </Button>
+              </a>
+            </motion.div>
+
+            <motion.div 
+              className="flex gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <FaGithub size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <FaLinkedin size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <FaEnvelope size={24} />
+              </a>
+            </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/20 to-blue-500/20 rounded-full blur-3xl" />
-              <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full border-2 border-primary/30 overflow-hidden relative z-10">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-blue-500 to-purple-500 rounded-full blur opacity-75 animate-pulse"/>
+              <div className="relative rounded-full overflow-hidden border-2 border-primary/30 aspect-square">
                 <img 
                   src="/profile.jpg" 
-                  alt="Jithin John" 
-                  className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-300"
+                  alt="Profile"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <FaArrowDown className="animate-bounce text-primary" size={24} />
-      </motion.div>
     </section>
   );
 }
