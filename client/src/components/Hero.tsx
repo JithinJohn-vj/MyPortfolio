@@ -94,13 +94,12 @@ export default function Hero() {
           >
             <div className="relative">
               <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-primary via-blue-500 to-purple-500 opacity-20 blur-2xl absolute top-4 left-4"></div>
-              <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full border-2 border-primary/30 overflow-hidden relative z-10 group bg-gradient-to-br from-gray-900/50 to-black/80 p-1">
-                <div className="w-full h-full bg-surface rounded-full flex items-center justify-center text-primary relative overflow-hidden shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 opacity-60"></div>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-28 w-28 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
+              <div className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full border-2 border-primary/30 overflow-hidden relative z-10 group">
+                <img 
+                  src="/public/profile.jpg" 
+                  alt="Jithin John" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
