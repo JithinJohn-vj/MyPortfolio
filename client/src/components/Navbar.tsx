@@ -53,7 +53,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
               }}
               className="text-xl font-bold text-white"
             >
-              Jithin John
             </a>
           </div>
           <nav className="hidden md:block">
