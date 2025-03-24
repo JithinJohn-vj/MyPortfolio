@@ -53,7 +53,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               }}
               className="text-xl font-bold text-white"
             >
-              <span className="text-primary">&lt;</span>Jithin<span className="text-primary">/&gt;</span>
+              Jithin John
             </a>
           </div>
           <nav className="hidden md:block">
