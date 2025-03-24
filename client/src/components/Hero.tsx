@@ -11,11 +11,7 @@ export default function Hero() {
   return (
     <section className="hero-section">
       <div className="profile-container">
-        <img 
-          src="/profile.jpg" 
-          alt="Jithin John" 
-          className="profile-image"
-        />
+        <img src="/public/profile.jpg" alt="Profile" className="profile-image w-[150px] h-[150px] rounded-full object-cover border-2 border-white/10" />
       </div>
       <h1 className="hero-title">I'm Jithin.</h1>
       <div className="hero-subtitle">
