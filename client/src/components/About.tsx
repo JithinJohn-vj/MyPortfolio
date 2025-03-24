@@ -64,13 +64,15 @@ export default function About() {
           </div>
           
           <div className="mt-8 text-center">
-            <Button 
-              variant="outline" 
-              className="bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20"
-            >
-              <FaDownload className="mr-2 h-4 w-4" />
-              Download CV
-            </Button>
+            <a href="/public/Jithin_John_CV.pdf" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="outline" 
+                className="bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20"
+              >
+                <FaDownload className="mr-2 h-4 w-4" />
+                Download CV
+              </Button>
+            </a>
           </div>
         </motion.div>
       </div>

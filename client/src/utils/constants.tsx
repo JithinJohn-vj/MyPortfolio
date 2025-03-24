@@ -74,7 +74,7 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Databases",
     icon: <FaDatabase className="h-5 w-5 mr-2" />,
-    skills: ["MongoDB", "MySQL", "SQLite"],
+    skills: ["MongoDB", "MySQL", "SQLite", "PostgreSQL"],
   },
   {
     name: "DevOps & Cloud",
@@ -138,7 +138,7 @@ export const experiences: Experience[] = [
     title: "Frontend Developer",
     company: "LymData Labs Pvt. Ltd.",
     location: "Remote",
-    period: "April 2024 – Present",
+    period: "April 2024 – March 2025",
     responsibilities: [
       "Designed and developed a youth skill development platform using Next.js, Tailwind CSS, Bootstrap, and MongoDB.",
       "Led the development of an online restaurant platform incorporating table booking and food delivery features using AWS and Next.js.",
@@ -149,7 +149,7 @@ export const experiences: Experience[] = [
   {
     title: "Python Developer",
     company: "Softroniics Solutions",
-    location: "Palakkad, Kerala, India",
+    location: "Cochin, India",
     period: "July 2023 – March 2024",
     responsibilities: [
       "Developed a full-fledged e-commerce platform using Python Django and MongoDB, deployed on Google Cloud Platform (GCP) with Docker containers.",
@@ -161,7 +161,7 @@ export const experiences: Experience[] = [
   {
     title: "Junior Python Developer",
     company: "Softroniics Solutions",
-    location: "Calicut, Kerala, India",
+    location: "Calicut, India",
     period: "Dec 2019 – Dec 2021",
     responsibilities: [
       "Designed and implemented an Inventory Management System using Python and Django, streamlining stock tracking and reporting.",
